@@ -1,0 +1,65 @@
+{% include "navbar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Update Student</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<h1 class="text-center my-3">Update Student</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card bg-info">
+                <div class="card-body">
+
+                    <form action="{% url 'do_update_std' s.id %}" method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label>Name</label>
+                            <input type="text" name="std_name" class="form-control"
+                                   value="{{ s.name }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Roll</label>
+                            <input type="text" name="std_roll" class="form-control"
+                                   value="{{ s.roll }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" name="std_email" class="form-control"
+                                   value="{{ s.email }}">
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Address</label>
+                            <textarea name="std_address" class="form-control"
+                                      rows="4">{{ s.address }}</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Phone</label>
+                            <input type="text" name="std_phone" class="form-control"
+                                   value="{{ s.phone }}">
+                        </div>
+
+                        <div class="text-center">
+                            <button class="btn btn-success">Update Student</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
